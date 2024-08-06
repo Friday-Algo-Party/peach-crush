@@ -1,4 +1,4 @@
-package class2.p1546_평균.v1;
+package class2.p1546_평균.v2;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,13 +11,14 @@ public class Main {
         int N = Integer.parseInt(br.readLine());
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        List<Integer> scores = new ArrayList<>();
+        int max = 0;
+        int sum = 0;
         for (int i = 0; i < N; i++) {
-            scores.add(Integer.parseInt(st.nextToken()));
+            int score = Integer.parseInt(st.nextToken());
+            max = Math.max(max, score);
+            sum += score;
         }
 
-        int max = Collections.max(scores);
-        int sum = scores.stream().mapToInt(Integer::intValue).sum();
         double avg = (double) sum / max * 100 / N;
         System.out.println(avg);
     }

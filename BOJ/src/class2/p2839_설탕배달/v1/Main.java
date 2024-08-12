@@ -7,6 +7,7 @@ import java.util.Arrays;
 
 public class Main {
     static final int MAX = (int) 1e9;
+    static final int[] WEIGHTS = {3, 5};
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -16,12 +17,14 @@ public class Main {
         dp[0] = 0;
 
         for (int i = 1; i <= N; i++) {
-            if (i - 3 >= 0 && dp[i - 3] != -1) {
-                dp[i] = Math.min(dp[i], dp[i - 3] + 1);
+            for (int j = 0; j < WEIGHTS.length; j++) {
+                int idx = i - WEIGHTS[j];
+
+                if(idx >= 0 && dp[idx] != -1) {
+                    dp[i] = Math.min(dp[i], dp[idx] + 1);
+                }
             }
-            if (i - 5 >= 0 && dp[i - 5] != -1) {
-                dp[i] = Math.min(dp[i], dp[i - 5] + 1);
-            }
+
             if (dp[i] == MAX) {
                 dp[i] = -1;
             }

@@ -28,7 +28,7 @@ public class Main {
         int sum = 0;
         int len = N + 1;
 
-        while (start < end && end <= N) {
+        while (end <= N) {
             sum = prefixSum[end] - prefixSum[start];
 
             if (sum >= S) {

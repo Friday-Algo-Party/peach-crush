@@ -7,7 +7,6 @@ import java.util.StringTokenizer;
 
 public class Main {
     static int N, M;
-    static boolean[] visited;
     static int[] sequence;
     static StringBuilder sb = new StringBuilder();
 
@@ -17,8 +16,6 @@ public class Main {
 
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
-
-        visited = new boolean[N + 1];
         sequence = new int[M];
 
         findSequence(1, 0);
@@ -35,12 +32,8 @@ public class Main {
             sb.append("\n");
         } else {
             for (int i = idx; i <= N; i++) {
-                if(!visited[i]) {
-                    visited[i] = true;
-                    sequence[depth] = i;
-                    findSequence(i+1, depth+1);
-                    visited[i] = false;
-                }
+                sequence[depth] = i;
+                findSequence(i+1, depth+1);
             }
         }
     }

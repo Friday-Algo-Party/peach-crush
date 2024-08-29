@@ -1,4 +1,4 @@
-# [N과 M(2)](https://www.acmicpc.net/problem/15650)
+# [N과 M(4)](https://www.acmicpc.net/problem/15652)
 ## 문제
 자연수 N과 M이 주어졌을 때 아래 조건을 만족하는 길이가 M인 수열 구하기
 - 1부터 N까지 자연수 중에서 M개를 고른 수열
